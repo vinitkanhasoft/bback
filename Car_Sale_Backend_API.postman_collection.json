@@ -1,0 +1,1031 @@
+{
+	"info": {
+		"_postman_id": "car-sale-backend-api",
+		"name": "🚗 Car Sale Backend API",
+		"description": "Complete API collection for Car Sale Backend System with organized folders and proper authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "car-sale-backend"
+	},
+	"item": [
+		{
+			"name": "🌐 Public Routes",
+			"description": "Routes accessible without authentication",
+			"item": [
+				{
+					"name": "💚 Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/health",
+							"host": ["{{baseUrl}}"],
+							"path": ["health"]
+						},
+						"description": "Basic health check endpoint"
+					},
+					"response": []
+				},
+				{
+					"name": "💚 Public Health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/public/health",
+							"host": ["{{baseUrl}}"],
+							"path": ["public", "health"]
+						},
+						"description": "Public health check with detailed info"
+					},
+					"response": []
+				},
+				{
+					"name": "📚 API Documentation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/public/docs",
+							"host": ["{{baseUrl}}"],
+							"path": ["public", "docs"]
+						},
+						"description": "Get API documentation"
+					},
+					"response": []
+				},
+				{
+					"name": "🛣️ Available Routes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/public/routes",
+							"host": ["{{baseUrl}}"],
+							"path": ["public", "routes"]
+						},
+						"description": "Get available routes based on authentication"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "🔐 Authentication",
+			"description": "Authentication and authorization endpoints",
+			"item": [
+				{
+					"name": "📝 User Registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"SecurePass123!\",\n  \"phone\": \"+1234567890\",\n  \"role\": \"USER\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "register"]
+						},
+						"description": "Register a new user account"
+					},
+					"response": []
+				},
+				{
+					"name": "🔑 User Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"SecurePass123!\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "login"]
+						},
+						"description": "Login with email and password"
+					},
+					"response": []
+				},
+				{
+					"name": "🔄 Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"refreshToken\": \"your-refresh-token-here\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/refresh-token",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "refresh-token"]
+						},
+						"description": "Refresh access token using refresh token"
+					},
+					"response": []
+				},
+				{
+					"name": "✉️ Verify Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"token\": \"verification-token-here\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/verify-email",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "verify-email"]
+						},
+						"description": "Verify email address with token"
+					},
+					"response": []
+				},
+				{
+					"name": "🔒 Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"john.doe@example.com\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/forgot-password",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "forgot-password"]
+						},
+						"description": "Request password reset email"
+					},
+					"response": []
+				},
+				{
+					"name": "🔧 Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"token\": \"reset-token-here\",\n  \"newPassword\": \"NewSecurePass123!\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/reset-password",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "reset-password"]
+						},
+						"description": "Reset password with token"
+					},
+					"response": []
+				},
+				{
+					"name": "📨 Resend Verification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"john.doe@example.com\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/resend-verification",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "resend-verification"]
+						},
+						"description": "Resend email verification"
+					},
+					"response": []
+				},
+				{
+					"name": "🚪 Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/auth/logout",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "logout"]
+						},
+						"description": "Logout user and invalidate token"
+					},
+					"response": []
+				},
+				{
+					"name": "🔐 Change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"currentPassword\": \"OldPassword123!\",\n  \"newPassword\": \"NewPassword123!\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/change-password",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "change-password"]
+						},
+						"description": "Change user password"
+					},
+					"response": []
+				},
+				{
+					"name": "👤 Get Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/auth/profile",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "profile"]
+						},
+						"description": "Get user profile information"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "👥 User Management",
+			"description": "User profile and management endpoints",
+			"item": [
+				{
+					"name": "👤 Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", ":userId"]
+						},
+						"description": "Get user by ID (own profile or admin access)"
+					},
+					"response": []
+				},
+				{
+					"name": "✏️ Update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"John Updated\",\n  \"lastName\": \"Doe Updated\",\n  \"phone\": \"+1234567890\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/profile",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "profile"]
+						},
+						"description": "Update user profile"
+					},
+					"response": []
+				},
+				{
+					"name": "🖼️ Upload Avatar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/avatar",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "avatar"]
+						},
+						"description": "Upload user avatar image"
+					},
+					"response": []
+				},
+				{
+					"name": "🗑️ Remove Avatar",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/avatar",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "avatar"]
+						},
+						"description": "Remove user avatar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "👑 Admin Routes",
+			"description": "Admin-only user management endpoints",
+			"item": [
+				{
+					"name": "👥 List All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users?page=1&limit=10&search=john",
+							"host": ["{{baseUrl}}"],
+							"path": ["users"],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "search",
+									"value": "john"
+								}
+							]
+						},
+						"description": "List all users with pagination and search"
+					},
+					"response": []
+				},
+				{
+					"name": "➕ Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Jane\",\n  \"lastName\": \"Smith\",\n  \"email\": \"jane.smith@example.com\",\n  \"password\": \"SecurePass123!\",\n  \"phone\": \"+1234567890\",\n  \"role\": \"MANAGER\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users",
+							"host": ["{{baseUrl}}"],
+							"path": ["users"]
+						},
+						"description": "Create new user (admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "📊 User Statistics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/stats",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "stats"]
+						},
+						"description": "Get user statistics"
+					},
+					"response": []
+				},
+				{
+					"name": "🎭 Users by Role",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/role/:role",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "role", ":role"]
+						},
+						"description": "Get users by specific role"
+					},
+					"response": []
+				},
+				{
+					"name": "✅ Active Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/active",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "active"]
+						},
+						"description": "Get all active users"
+					},
+					"response": []
+				},
+				{
+					"name": "⏸️ Inactive Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/inactive",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "inactive"]
+						},
+						"description": "Get all inactive users"
+					},
+					"response": []
+				},
+				{
+					"name": "✏️ Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"John Updated\",\n  \"lastName\": \"Doe Updated\",\n  \"role\": \"MANAGER\",\n  \"isActive\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", ":userId"]
+						},
+						"description": "Update user information (admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "🗑️ Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", ":userId"]
+						},
+						"description": "Delete user (admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "🔄 Activate User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/activate",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", ":userId", "activate"]
+						},
+						"description": "Activate user account"
+					},
+					"response": []
+				},
+				{
+					"name": "⏸️ Deactivate User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/:userId/deactivate",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", ":userId", "deactivate"]
+						},
+						"description": "Deactivate user account"
+					},
+					"response": []
+				},
+				{
+					"name": "🧹 Cleanup Images",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{adminToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/users/cleanup/:folder",
+							"host": ["{{baseUrl}}"],
+							"path": ["users", "cleanup", ":folder"]
+						},
+						"description": "Cleanup orphaned images from specified folder"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "🚗 Car Management",
+			"description": "Car listing and management endpoints",
+			"item": [
+				{
+					"name": "🚗 Get All Cars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars?page=1&limit=10&brand=Toyota&year=2023",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars"],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "brand",
+									"value": "Toyota"
+								},
+								{
+									"key": "year",
+									"value": "2023"
+								}
+							]
+						},
+						"description": "Get all cars with filtering and pagination"
+					},
+					"response": []
+				},
+				{
+					"name": "🔍 Get Car by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/:carId",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars", ":carId"]
+						},
+						"description": "Get car details by ID"
+					},
+					"response": []
+				},
+				{
+					"name": "➕ Create Car",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Toyota Camry 2023\",\n  \"brand\": \"Toyota\",\n  \"model\": \"Camry\",\n  \"year\": 2023,\n  \"variant\": \"SE\",\n  \"bodyType\": \"SEDAN\",\n  \"color\": \"Pearl White\",\n  \"description\": \"Excellent condition Toyota Camry with low mileage\",\n  \"pricing\": {\n    \"regularPrice\": 25000,\n    \"salePrice\": 23000,\n    \"onRoadPrice\": 26000,\n    \"emiStartingFrom\": 450\n  },\n  \"technical\": {\n    \"km\": 15000,\n    \"fuelType\": \"PETROL\",\n    \"transmission\": \"AUTOMATIC\",\n    \"engine\": \"2.5L Inline-4\",\n    \"mileage\": 32,\n    \"seats\": 5,\n    \"ownership\": 1,\n    \"driveType\": \"FWD\",\n    \"sellerType\": \"INDIVIDUAL\"\n  },\n  \"location\": {\n    \"registrationCity\": \"New York\",\n    \"registrationState\": \"NY\"\n  },\n  \"insurance\": {\n    \"type\": \"COMPREHENSIVE\",\n    \"expiryDate\": \"2024-12-31\",\n    \"policyNumber\": \"POL123456\"\n  },\n  \"status\": \"AVAILABLE\",\n  \"isFeatured\": false,\n  \"primaryImage\": \"https://example.com/image1.jpg\",\n  \"images\": [\n    \"https://example.com/image1.jpg\",\n    \"https://example.com/image2.jpg\"\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cars",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars"]
+						},
+						"description": "Create new car listing"
+					},
+					"response": []
+				},
+				{
+					"name": "✏️ Update Car",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Toyota Camry 2023 - Updated\",\n  \"pricing\": {\n    \"regularPrice\": 24000,\n    \"salePrice\": 22000\n  },\n  \"status\": \"SOLD\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cars/:carId",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars", ":carId"]
+						},
+						"description": "Update car information"
+					},
+					"response": []
+				},
+				{
+					"name": "🗑️ Delete Car",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/:carId",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars", ":carId"]
+						},
+						"description": "Delete car listing"
+					},
+					"response": []
+				},
+				{
+					"name": "⭐ Featured Cars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/featured?limit=5",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars", "featured"],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								}
+							]
+						},
+						"description": "Get featured cars"
+					},
+					"response": []
+				},
+				{
+					"name": "🔍 Search Cars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/search?q=Toyota&minPrice=20000&maxPrice=30000",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars", "search"],
+							"query": [
+								{
+									"key": "q",
+									"value": "Toyota"
+								},
+								{
+									"key": "minPrice",
+									"value": "20000"
+								},
+								{
+									"key": "maxPrice",
+									"value": "30000"
+								}
+							]
+						},
+						"description": "Search cars with filters"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "⚙️ Car Features",
+			"description": "Car features management endpoints",
+			"item": [
+				{
+					"name": "📋 Get Car Features",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/:carId/features",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars", ":carId", "features"]
+						},
+						"description": "Get all features for a specific car"
+					},
+					"response": []
+				},
+				{
+					"name": "➕ Add Feature",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Bluetooth Connectivity\",\n  \"key\": \"bluetooth\",\n  \"carId\": \"car-id-here\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cars/features",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars", "features"]
+						},
+						"description": "Add feature to car"
+					},
+					"response": []
+				},
+				{
+					"name": "🗑️ Delete Feature",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/features/:featureId",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars", "features", ":featureId"]
+						},
+						"description": "Delete car feature"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "📊 Car Specifications",
+			"description": "Car specifications management endpoints",
+			"item": [
+				{
+					"name": "📋 Get Car Specifications",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/:carId/specifications",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars", ":carId", "specifications"]
+						},
+						"description": "Get all specifications for a specific car"
+					},
+					"response": []
+				},
+				{
+					"name": "➕ Add Specification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Engine Displacement\",\n  \"key\": \"engine_displacement\",\n  \"carId\": \"car-id-here\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cars/specifications",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars", "specifications"]
+						},
+						"description": "Add specification to car"
+					},
+					"response": []
+				},
+				{
+					"name": "🗑️ Delete Specification",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cars/specifications/:specificationId",
+							"host": ["{{baseUrl}}"],
+							"path": ["cars", "specifications", ":specificationId"]
+						},
+						"description": "Delete car specification"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "adminToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "refreshToken",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

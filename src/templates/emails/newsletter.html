@@ -1,0 +1,81 @@
+<h1>📰 {{companyName}} Newsletter</h1>
+<p>Hi {{firstName}},</p>
+<p>Welcome to our latest newsletter! Here's what's new and exciting at {{companyName}}.</p>
+
+<!-- Featured Content -->
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; padding: 30px; margin: 30px 0; text-align: center;">
+    <h2 style="color: white; margin-top: 0;">🌟 Featured: {{featuredTitle}}</h2>
+    <p style="font-size: 18px; margin-bottom: 20px;">{{featuredDescription}}</p>
+    <a href="{{featuredUrl}}" style="color: white; background: rgba(255,255,255,0.2); padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+        Learn More →
+    </a>
+</div>
+
+<!-- Recent Updates -->
+<h2>🚀 Recent Updates</h2>
+{{#each updates}}
+<div style="border-left: 4px solid #667eea; padding: 15px 20px; margin: 15px 0; background: #f8f9fa; border-radius: 0 8px 8px 0;">
+    <h3 style="margin-top: 0; color: #2c3e50;">{{title}}</h3>
+    <p>{{description}}</p>
+    <a href="{{url}}" style="color: #667eea; font-weight: bold;">Read more →</a>
+</div>
+{{/each}}
+
+<!-- Tips & Tricks -->
+<h2>💡 Tips & Tricks</h2>
+<div class="alert alert-info">
+    <strong>Pro Tip:</strong> {{tip}}
+</div>
+
+<!-- Upcoming Features -->
+<h2>🔮 Coming Soon</h2>
+<ul style="text-align: left; max-width: 400px; margin: 0 auto;">
+{{#each upcomingFeatures}}
+    <li>{{this}}</li>
+{{/each}}
+</ul>
+
+<!-- Call to Action -->
+<div style="text-align: center; margin: 40px 0;">
+    <a href="{{mainActionUrl}}" class="btn btn-primary">
+        {{mainActionText}}
+    </a>
+</div>
+
+<!-- Community Section -->
+<h2>👥 Community Corner</h2>
+<p>Join our growing community of {{communityCount}}+ users!</p>
+<div style="display: flex; justify-content: space-around; text-align: center; margin: 30px 0;">
+    <div>
+        <div style="font-size: 24px; font-weight: bold; color: #667eea;">{{forumPosts}}</div>
+        <div style="font-size: 14px; color: #6c757d;">Forum Posts</div>
+    </div>
+    <div>
+        <div style="font-size: 24px; font-weight: bold; color: #667eea;">{{tutorials}}</div>
+        <div style="font-size: 14px; color: #6c757d;">Tutorials</div>
+    </div>
+    <div>
+        <div style="font-size: 24px; font-weight: bold; color: #667eea;">{{webinars}}</div>
+        <div style="font-size: 14px; color: #6c757d;">Webinars</div>
+    </div>
+</div>
+
+<div style="text-align: center;">
+    <a href="{{communityUrl}}" class="btn btn-success">
+        🌐 Join Community
+    </a>
+</div>
+
+<!-- Footer Links -->
+<p><strong>Quick Links:</strong></p>
+<div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin: 20px 0;">
+    <a href="{{blogUrl}}" style="color: #667eea; margin: 5px;">📝 Blog</a>
+    <a href="{{helpUrl}}" style="color: #667eea; margin: 5px;">❓ Help Center</a>
+    <a href="{{apiUrl}}" style="color: #667eea; margin: 5px;">🔧 API Docs</a>
+    <a href="{{feedbackUrl}}" style="color: #667eea; margin: 5px;">💬 Feedback</a>
+</div>
+
+<p>Have suggestions for our next newsletter? <a href="{{feedbackUrl}}" style="color: #667eea;">We'd love to hear from you!</a></p>
+
+<p>Thanks for being part of our journey!</p>
+<p>Best regards,<br>The {{companyName}} Team</p>

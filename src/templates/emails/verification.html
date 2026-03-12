@@ -1,0 +1,27 @@
+<h1>Verify Your Email Address</h1>
+<p>Hi {{firstName}},</p>
+<p>Thank you for registering with {{companyName}}! To complete your registration and activate your account, please verify your email address by clicking the button below.</p>
+
+<div style="text-align: center;">
+    <a href="{{verificationUrl}}" class="btn btn-primary">
+        ✓ Verify Email Address
+    </a>
+</div>
+
+<div class="alert alert-info">
+    <strong>⏰ Time-sensitive:</strong> This verification link will expire in 24 hours for security reasons.
+</div>
+
+<p><strong>Can't click the button?</strong></p>
+<p>No problem! Copy and paste this link into your browser:</p>
+<div class="link-fallback">
+    {{verificationUrl}}
+</div>
+
+<div class="alert alert-warning">
+    <strong>🔒 Security Notice:</strong> If you didn't create an account with {{companyName}}, please ignore this email or 
+    <a href="{{supportUrl}}" style="color: #e65100;">contact our support team</a>.
+</div>
+
+<p>Welcome aboard!</p>
+<p>Best regards,<br>The {{companyName}} Team</p>

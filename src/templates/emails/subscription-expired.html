@@ -1,0 +1,48 @@
+<h1>⏰ Subscription Expired</h1>
+<p>Hi {{firstName}},</p>
+<p>Your {{companyName}} subscription has expired on {{expiryDate}}.</p>
+
+<div class="alert alert-warning">
+    <strong>📊 Current Status:</strong> Your account is now in read-only mode
+</div>
+
+<p><strong>What's affected:</strong></p>
+<ul style="text-align: left; max-width: 400px; margin: 0 auto;">
+    <li>🚫 Cannot create new records</li>
+    <li>🚫 Cannot edit existing data</li>
+    <li>📂 Can view and export your data</li>
+    <li>📱 Limited access to mobile features</li>
+</ul>
+
+<div style="text-align: center;">
+    <a href="{{renewalUrl}}" class="btn btn-primary">
+        💳 Renew Subscription
+    </a>
+</div>
+
+<p><strong>Don't lose your data!</strong></p>
+<div class="alert alert-danger">
+    <strong>⚠️ Data Deletion Warning:</strong> Your account and all data will be permanently deleted in {{deletionDays}} days if you don't renew your subscription.
+</div>
+
+<p><strong>What happens next:</strong></p>
+<ol style="text-align: left; max-width: 400px; margin: 0 auto;">
+    <li><strong>Day 1-{{gracePeriodDays}}:</strong> Grace period with full features</li>
+    <li><strong>Day {{gracePeriodDays + 1}}-{{deletionDays}}:</strong> Read-only access</li>
+    <li><strong>Day {{deletionDays}}:</strong> Permanent data deletion</li>
+</ol>
+
+<p><strong>Ready to continue using {{companyName}}?</strong></p>
+<p>Renewing is quick and easy:</p>
+<div style="background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0;">
+    <p style="margin: 5px 0;"><strong>1️⃣ Choose your plan:</strong> Select the best plan for your needs</p>
+    <p style="margin: 5px 0;"><strong>2️⃣ Secure payment:</strong> Safe and encrypted payment processing</p>
+    <p style="margin: 5px 0;"><strong>3️⃣ Instant access:</strong> Get back to work immediately</p>
+</div>
+
+<p><strong>Need help choosing a plan?</strong></p>
+<p>Our team is here to help you find the perfect solution for your business. 
+<a href="{{supportUrl}}" style="color: #667eea;">Contact us</a> for a personalized consultation.</p>
+
+<p>We'd love to continue serving you!</p>
+<p>Best regards,<br>The {{companyName}} Team</p>
