@@ -1,0 +1,40 @@
+<h1>⚠️ Account Deactivated</h1>
+<p>Hi {{firstName}},</p>
+<p>We're writing to inform you that your {{companyName}} account has been deactivated.</p>
+
+<div class="alert alert-warning">
+    <strong>Reason for deactivation:</strong> {{deactivationReason}}
+</div>
+
+<p><strong>What this means:</strong></p>
+<ul style="text-align: left; max-width: 400px; margin: 0 auto;">
+    <li>🚫 You can no longer log in to your account</li>
+    <li>📊 Your data has been preserved for {{dataRetentionDays}} days</li>
+    <li>🔄 You can reactivate your account within this period</li>
+    <li>📧 All email notifications have been suspended</li>
+</ul>
+
+<div style="text-align: center;">
+    <a href="{{reactivateUrl}}" class="btn btn-warning">
+        🔄 Reactivate Account
+    </a>
+</div>
+
+<p><strong>Want to reactivate your account?</strong></p>
+<p>If you believe this was a mistake or you'd like to reactivate your account, please click the button above or 
+<a href="{{supportUrl}}" style="color: #e65100;">contact our support team</a> within {{dataRetentionDays}} days.</p>
+
+<div class="alert alert-info">
+    <strong>📅 Important Deadline:</strong> After {{dataRetentionDays}} days from deactivation date, your account and all associated data will be permanently deleted and cannot be recovered.
+</div>
+
+<p><strong>Questions about your account?</strong></p>
+<p>Our support team is here to help. You can reach us at:</p>
+<div style="background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0;">
+    <p style="margin: 5px 0;"><strong>📧 Email:</strong> <a href="mailto:{{supportEmail}}">{{supportEmail}}</a></p>
+    <p style="margin: 5px 0;"><strong>🌐 Support Portal:</strong> <a href="{{supportUrl}}">{{supportUrl}}</a></p>
+    <p style="margin: 5px 0;"><strong>📞 Phone:</strong> {{supportPhone}}</p>
+</div>
+
+<p>We value your business and hope to see you back soon!</p>
+<p>Best regards,<br>The {{companyName}} Team</p>
